@@ -18,7 +18,6 @@ export class LoginComponent {
   constructor(private loginService:LoginService){}
 
   onSubmit(){
-    console.log(this.login.value);
-    this.loginService.login();
+    this.loginService.login(this.login.value);
   }
 }

@@ -6,11 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
+  rootUrl:string="http://localhost:8090/abc-telecom"
   constructor(private http :HttpClient) { }
 
-  login(){
-    this.http.get('/abc-telecom/login').subscribe(data => {
-      
+  login(data:object){
+    this.http.post(this.rootUrl+'/login',data,{responseType:'text'}).subscribe(data => {
+      console.log(data);
     });
   }
 }
