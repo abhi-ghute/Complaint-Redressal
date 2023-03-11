@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit{
   ngOnInit(){
     let data = sessionStorage.getItem('user');
     if(data=='admin'){
-
+      this.router.navigate(['/admin/create/customer']);
     }
   }
   constructor(private loginService:LoginService,private router:Router){}

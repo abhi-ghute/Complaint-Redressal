@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create-engineer',
@@ -7,4 +8,29 @@ import { Component } from '@angular/core';
 })
 export class CreateEngineerComponent {
 
+  engineer: FormGroup = this.fb.group({
+    name: ['', Validators.required],
+    mobile: ['', Validators.required],
+    email: ['', Validators.required],
+    password: ['', Validators.required],
+    pincodes: this.fb.array([])
+  });
+
+  constructor(private fb: FormBuilder) { }
+
+  get pincodes() {
+    return this.engineer.get('pincodes') as FormArray;
+  }
+
+  addPincode() {
+    this.pincodes.push(new FormControl('', Validators.required));
+  }
+
+  removePincode(index: number) {
+    this.pincodes.removeAt(index);
+  }
+
+  onSubmit() {
+    console.log(this.engineer.value);
+  }
 }

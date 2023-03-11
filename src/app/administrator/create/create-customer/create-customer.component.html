@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-6"><img src="/assets/images/loginImage.jpg" class="image"></div>
+    <div class="col-sm-6"><img src="/assets/images/createCustomer.jpg" class="image"></div>
     <div class="col-sm-6">
     <form [formGroup]="customer" (ngSubmit)="onSubmit()" novalidate>
         <h2>Create Customer</h2>
@@ -22,6 +22,17 @@
                 <input type="text" id="mobile" formControlName="mobile" class="form-control">
                 <div *ngIf="customer.get('mobile')?.touched && customer.get('mobile')?.invalid" class="error-message">
                     <div *ngIf="customer.get('mobile')?.errors?.['required']">Mobile is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label for="email">Email : </label>
+            </div>
+            <div class="col-md-9">
+                <input type="text" id="email" formControlName="email" class="form-control">
+                <div *ngIf="customer.get('email')?.touched && customer.get('email')?.invalid" class="error-message">
+                    <div *ngIf="customer.get('email')?.errors?.['required']">Email is required</div>
                 </div>
             </div>
         </div>
@@ -88,8 +99,20 @@
                 </div>
             </div>
         </div>
-        <div>
-            <button type="submit">Submit</button>
-          </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label for="pincode">PinCode : </label>
+            </div>
+            <div class="col-md-9">
+                <input type="text" id="pincode" formControlName="pincode" class="form-control">
+                <div *ngIf="customer.get('pincode')?.touched && customer.get('pincode')?.invalid" class="error-message">
+                    <div *ngIf="customer.get('pincode')?.errors?.['required']">pinCode is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <br>
+            <button type=" submit" class="btn btn-success" [disabled]="customer.invalid">Submit</button>
+        </div>
     </form>
 </div>
