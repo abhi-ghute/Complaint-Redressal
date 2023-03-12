@@ -30,6 +30,8 @@ export class LoginComponent implements OnInit{
         sessionStorage.setItem("user",data);
         if(data=='admin')
           this.router.navigate(['/admin/create/customer']);
+        if(this.login.value.role == 'customer')
+          this.router.navigate(['/customer/complaint']);
       }else{
         this.login.reset();
         alert("Wrong Credentials..");

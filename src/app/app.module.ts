@@ -17,6 +17,12 @@ import { CreateCustomerComponent } from './administrator/create/create-customer/
 import { ManagerComponent } from './manager/manager.component';
 import { CreateManagerComponent } from './administrator/create/create-manager/create-manager.component';
 import { CreateEngineerComponent } from './administrator/create/create-engineer/create-engineer.component';
+import { CreateComplaintComponent } from './customer/create-complaint/create-complaint.component';
+import { TrackComplaintComponent } from './customer/track-complaint/track-complaint.component';
+import { ViewComplaintsComponent } from './customer/view-complaints/view-complaints.component';
+import { ComplaintFeedbackComponent } from './customer/complaint-feedback/complaint-feedback.component';
+import { ComplaintListComponent } from './manager/complaint-list/complaint-list.component';
+import { ComplaintStatusComponent } from './manager/complaint-status/complaint-status.component';
 
 
 @NgModule({
@@ -32,7 +38,13 @@ import { CreateEngineerComponent } from './administrator/create/create-engineer/
     CreateComponent,
     CreateCustomerComponent,
     CreateManagerComponent,
-    CreateEngineerComponent
+    CreateEngineerComponent,
+    CreateComplaintComponent,
+    TrackComplaintComponent,
+    ViewComplaintsComponent,
+    ComplaintFeedbackComponent,
+    ComplaintListComponent,
+    ComplaintStatusComponent
   ],
   imports: [
     BrowserModule,

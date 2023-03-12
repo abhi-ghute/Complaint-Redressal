@@ -48,15 +48,23 @@
                 </div>
             </div>
         </div>
-        <div formArrayName="pincodes">
-            <label>Pincodes:</label>
-            <div *ngFor="let pincode of pincodes.controls; let i=index">
-              <input type="text" [formControlName]="i">
-              <button type="button" (click)="removePincode(i)">Remove</button>
+        <div formArrayName="pincodes" class="row">
+            <div class="col-md-3">
+                <label for="pincode">Pincode:</label>
+              </div>
+              <div class="col-md-9" style="margin-top: 10px;">(add pincodes where Engineer can work..)</div>
+              <div class="col-md-9 pincode-group" *ngFor="let pincode of pincodes.controls; let i=index">
+                <div class="input-group">
+                  <input type="text" id="pincode" [formControlName]="i" class="form-control">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-outline-danger" (click)="removePincode(i)">Remove</button>
+                  </div>
+                </div>
+            </div>                         
+            <div class="col-md-3" style="margin-top: 10px;">
+                <button type="button" class="btn btn-outline-primary"  (click)="addPincode()">Add Pincode</button>
             </div>
-            <button type="button" (click)="addPincode()">Add Pincode</button>
-          </div>
-
+        </div>
         <div class="form-group">
             <br>
             <button type=" submit" class="btn btn-success" [disabled]="engineer.invalid">Submit</button>

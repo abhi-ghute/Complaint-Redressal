@@ -16,7 +16,9 @@ export class CreateEngineerComponent {
     pincodes: this.fb.array([])
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+    this.addPincode();
+   }
 
   get pincodes() {
     return this.engineer.get('pincodes') as FormArray;

@@ -29,8 +29,9 @@ export class HeaderComponent {
   }
 
   logout() {
-    sessionStorage.setItem('id', "");
+    sessionStorage.setItem('user', "");
     alert("logged out");
+    this.router.navigate(['/login']);
   }
   search() {
     this.router.navigate(['/search'], { queryParams: { searchText: this.searchText } });
