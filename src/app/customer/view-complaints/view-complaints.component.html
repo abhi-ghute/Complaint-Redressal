@@ -1,1 +1,22 @@
-<p>view-complaints works!</p>
+<table>
+    <tr>
+        <th>Sr. No.</th>
+        <th>Ticket No</th>
+        <th>Status</th>
+        <th>Connection Type</th>
+        <th>details</th>
+        <th>Mobile No.</th>
+        <th>pincode</th>
+        <th>problem</th>
+    </tr>
+    <tr *ngFor="let c of complaints; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{c.ticketNo}}</td>
+        <td>{{c.status}}</td>
+        <td>{{c.connectionType}}</td>
+        <td>{{c.details}}</td>
+        <td>{{c.mobile}}</td>
+        <td>{{c.pincode}}</td>
+        <td>{{c.problem}}</td>
+    </tr>
+</table>

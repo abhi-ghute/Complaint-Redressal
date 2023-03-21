@@ -3,7 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateCustomerComponent } from './administrator/create/create-customer/create-customer.component';
 import { CreateEngineerComponent } from './administrator/create/create-engineer/create-engineer.component';
 import { CreateManagerComponent } from './administrator/create/create-manager/create-manager.component';
+import { CreateComplaintComponent } from './customer/create-complaint/create-complaint.component';
+import { CustomerComponent } from './customer/customer.component';
+import { ViewComplaintsComponent } from './customer/view-complaints/view-complaints.component';
 import { LoginComponent } from './login/login.component';
+import { ComplaintListComponent } from './manager/complaint-list/complaint-list.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -14,6 +18,16 @@ const routes: Routes = [
       {path:"engineer",component:CreateEngineerComponent}
     ]}
   ]},
+  {path:'customer',children:[
+    {path:'complaint',component:CreateComplaintComponent},
+    {path:'complaintList',component:ViewComplaintsComponent}
+  ]},
+  {path:'manager',children:[
+    {path:'complaints',component:ComplaintListComponent}
+  ]},
+  {path:'engineer',children:[
+    {path:'complaints',component:ViewComplaintsComponent}
+  ]}
 ];
 
 @NgModule({

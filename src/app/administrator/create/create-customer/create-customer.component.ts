@@ -21,10 +21,10 @@ export class CreateCustomerComponent implements OnInit {
   ngOnInit() {
 
     let data = sessionStorage.getItem('user');
-    if(data!='admin'){
-      alert("You don't have a access to create.. please contact admin");
+    if(data ==null || data ==undefined){
       this.router.navigate(['/login']);
-    }else if(data ==null || data ==undefined){
+    }else if(data!='admin'){
+      alert("You don't have a access to create.. please contact admin");
       this.router.navigate(['/login']);
     }
 
@@ -58,7 +58,7 @@ export class CreateCustomerComponent implements OnInit {
     }
     this.customerService.createCustomer(this.customer.value).subscribe(data => {
       console.log(data);
-      
+      alert("Customer Created")
     });
     this.customer.reset();
   }

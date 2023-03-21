@@ -28,10 +28,22 @@ export class LoginComponent implements OnInit{
     this.loginService.login(this.login.value).subscribe(data => {
       if(data!=='failure'){
         sessionStorage.setItem("user",data);
-        if(data=='admin')
+        if(data=='admin'){
+          sessionStorage.setItem("role",'admin');
           this.router.navigate(['/admin/create/customer']);
-        if(this.login.value.role == 'customer')
+        }
+        else if(this.login.value.role == 'customer'){
+          sessionStorage.setItem("role",'customer');
           this.router.navigate(['/customer/complaint']);
+        }
+        else if(this.login.value.role == 'manager'){
+          sessionStorage.setItem("role",'manager');
+          this.router.navigate(['/manager/complaints']);
+        }
+        else if(this.login.value.role == 'engineer'){
+          sessionStorage.setItem("role",'engineer');
+          this.router.navigate(['/engineer/complaints']);
+        }
       }else{
         this.login.reset();
         alert("Wrong Credentials..");

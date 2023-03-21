@@ -10,8 +10,7 @@ export class ManagerService {
   constructor(private http:HttpClient) { }
   rootUrl:string="http://localhost:8090/abc-telecom/manager"
 
-  createCustomer(manager:object):Observable<any>{
-    //console.log(manager);
+  createManager(manager:object):Observable<any>{
     return this.http.post(this.rootUrl+'/create',manager,{responseType:'text'});
   }
 }
