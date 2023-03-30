@@ -18,9 +18,9 @@ export class ViewComplaintsComponent implements OnInit{
         this.router.navigate(['/login']);
       }else{
         this.complaintService.getComplaints(cid).subscribe(data=>{
-          this.complaints=data;
+          this.complaints=data;        
         });
-      }
+      }      
   }
 
 }

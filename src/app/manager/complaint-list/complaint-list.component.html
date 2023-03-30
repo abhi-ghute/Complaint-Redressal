@@ -1,1 +1,29 @@
-<p>complaint-list works!</p>
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Sr. No.</th>
+            <th>Ticket No</th>
+            <th>Connection Type</th>
+            <th>problem</th>
+            <th>details</th>
+            <th>Mobile No.</th>
+            <th>pincode</th>
+            <th>Status</th>
+            <th>Action</th>  
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of complaints; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{c.ticketNo}}</td>
+            <td>{{c.connectionType}}</td>
+            <td>{{c.problem}}</td>
+            <td>{{c.details}}</td>
+            <td>{{c.mobile}}</td>
+            <td>{{c.pincode}}</td>
+            <td>{{c.status}}</td>
+            <td> <a [routerLink]="['/customer/track']" [queryParams]="{id:c.id}">View</a></td>
+        </tr>
+    </tbody>
+
+</table>

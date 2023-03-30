@@ -17,4 +17,12 @@ export class ComplaintService {
   getComplaints(cid:string){
     return this.http.get(this.rootUrl+'/list?cid='+cid);
   }
+
+  getComplaintById(id:string){
+    return this.http.get(this.rootUrl+'/getComplaintById?id='+id);
+  }
+
+  getAllComplaints(){
+    return this.http.get(this.rootUrl+'/getAllComplaints');
+  }
 }
