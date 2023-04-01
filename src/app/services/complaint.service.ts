@@ -22,7 +22,15 @@ export class ComplaintService {
     return this.http.get(this.rootUrl+'/getComplaintById?id='+id);
   }
 
-  getAllComplaints(){
-    return this.http.get(this.rootUrl+'/getAllComplaints');
+  getAllComplaints(status:String){
+    return this.http.get(this.rootUrl+'/getAllComplaints?status='+status);
+  }
+
+  updateComplaint(complaint:object):Observable<any>{    
+    return this.http.post(this.rootUrl+'/update',complaint,{responseType:'text'});
+  }
+
+  getAllComplaintsByEngineer(status:String,id:string){
+    return this.http.get(this.rootUrl+'/getAllComplaintsByEngineer?status='+status+'&id='+id);
   }
 }

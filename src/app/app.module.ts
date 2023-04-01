@@ -23,6 +23,10 @@ import { ViewComplaintsComponent } from './customer/view-complaints/view-complai
 import { ComplaintFeedbackComponent } from './customer/complaint-feedback/complaint-feedback.component';
 import { ComplaintListComponent } from './manager/complaint-list/complaint-list.component';
 import { ComplaintStatusComponent } from './manager/complaint-status/complaint-status.component';
+import { AssignComplaintComponent } from './manager/assign-complaint/assign-complaint.component';
+import { RouterModule } from '@angular/router';
+import { ComplaintsComponent } from './engineer/complaints/complaints.component';
+import { UpdateStatusComponent } from './engineer/update-status/update-status.component';
 
 
 @NgModule({
@@ -44,7 +48,10 @@ import { ComplaintStatusComponent } from './manager/complaint-status/complaint-s
     ViewComplaintsComponent,
     ComplaintFeedbackComponent,
     ComplaintListComponent,
-    ComplaintStatusComponent
+    ComplaintStatusComponent,
+    AssignComplaintComponent,
+    ComplaintsComponent,
+    UpdateStatusComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +59,8 @@ import { ComplaintStatusComponent } from './manager/complaint-status/complaint-s
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

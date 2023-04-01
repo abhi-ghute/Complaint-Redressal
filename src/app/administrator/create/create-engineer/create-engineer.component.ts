@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EngineerService } from 'src/app/services/engineer.service';
 
 @Component({
   selector: 'app-create-engineer',
@@ -17,7 +18,7 @@ export class CreateEngineerComponent implements OnInit{
     pincodes: this.fb.array([])
   });
 
-  constructor(private fb: FormBuilder,private router:Router) {
+  constructor(private fb: FormBuilder,private router:Router,private engineerService:EngineerService) {
     this.addPincode();
    }
 
@@ -44,6 +45,13 @@ export class CreateEngineerComponent implements OnInit{
   }
 
   onSubmit() {
-    console.log(this.engineer.value);
+    if(this.engineer.invalid){
+      return;
+    }
+    this.engineerService.createCustomer(this.engineer.value).subscribe(data => {
+      console.log(data);
+      alert("Engineer Created")
+    });
+    this.engineer.reset();
   }
 }

@@ -3,13 +3,13 @@ import { Router } from '@angular/router';
 import { ComplaintService } from 'src/app/services/complaint.service';
 
 @Component({
-  selector: 'app-complaint-list',
-  templateUrl: './complaint-list.component.html',
-  styleUrls: ['./complaint-list.component.css']
+  selector: 'app-complaints',
+  templateUrl: './complaints.component.html',
+  styleUrls: ['./complaints.component.css']
 })
-export class ComplaintListComponent {
-
+export class ComplaintsComponent {
   complaints:any;
+  id:string='';
   constructor(private complaintService:ComplaintService,private router:Router){}
 
   ngOnInit(): void {
@@ -17,14 +17,15 @@ export class ComplaintListComponent {
       if(mid =='' || mid==null){
         this.router.navigate(['/login']);
       }else{
-        this.complaintService.getAllComplaints("RAISED").subscribe(data=>{
+        this.id=mid;
+        this.complaintService.getAllComplaintsByEngineer("ASSIGNED",this.id).subscribe(data=>{
           this.complaints=data;
         });
       }      
   }
 
   getrecords(selectedStatus:any){
-    this.complaintService.getAllComplaints(selectedStatus.target.value).subscribe(data=>{
+    this.complaintService.getAllComplaintsByEngineer(selectedStatus.target.value,this.id).subscribe((data: any)=>{
       this.complaints=data;
     });
   }

@@ -12,9 +12,9 @@
             </article>
             <div class="track">
                 <div [ngClass]="'step active'"> <span class="icon"></span> <span class="text">Raised</span> </div>
-                <div [ngClass]="(complaint.status=='WIP'||complaint.status=='Assigned'||complaint.status=='Resolved'||complaint.status=='ESCALATED')?'step active':'step'"><span class="icon"></span> <span class="text">Assigned</span> </div>
-                <div [ngClass]="(complaint.status=='WIP'||complaint.status=='Resolved'||complaint.status=='ESCALATED')?'step active':'step'"> <span class="icon"></span><span class="text">Work In Progress</span> </div>
-                <div [ngClass]="(complaint.status=='Resolved'||complaint.status=='ESCALATED')?'step active':'step'"> <span class="icon"></span><span class="text"><span *ngIf='complaint.status=="ESCALATED"; else resolve'>ESCALATED</span><ng-template #resolve>Resolved</ng-template></span> </div>
+                <div [ngClass]="(complaint.status=='WIP'||complaint.status=='ASSIGNED'||complaint.status=='RESOLVED'||complaint.status=='ESCALATED')?'step active':'step'"><span class="icon"></span> <span class="text">ASSIGNED</span> </div>
+                <div [ngClass]="(complaint.status=='WIP'||complaint.status=='RESOLVED'||complaint.status=='ESCALATED')?'step active':'step'"> <span class="icon"></span><span class="text">Work In Progress</span> </div>
+                <div [ngClass]="(complaint.status=='RESOLVED'||complaint.status=='ESCALATED')?'step active':'step'"> <span class="icon"></span><span class="text"><span *ngIf='complaint.status=="ESCALATED"; else resolve'>ESCALATED</span><ng-template #resolve>Resolved</ng-template></span> </div>
             </div>
             <hr>
             <div class="feedback-container" *ngIf="complaint.status=='Resolved'|| complaint.status=='ESCALATED'">
@@ -29,8 +29,6 @@
                   </div>
                 </div>
               </div>              
-            <hr>
-            <a routerLink="/customer/complaintList" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to complaint list</a>
         </div>
     </article>
 </div>
