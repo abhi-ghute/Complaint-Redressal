@@ -17,4 +17,8 @@ export class EngineerService {
     return this.http.get(this.rootUrl+'/getByPincode?pinCode='+pinCode);
   }
   
+  getAll():Observable<any>{
+    return this.http.get(this.rootUrl+'/getAll');
+  }
+
 }

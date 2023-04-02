@@ -3,6 +3,7 @@
       <div class="form-group">
         <label for="status-select">Filter Records on Status:</label>
         <select class="form-control" id="status-select" (change)="getrecords($event)">
+          <option value="RAISED">RAISED</option>
           <option value="ASSIGNED">ASSIGNED</option>
           <option value="WIP">WIP</option>
           <option value="RESOLVED">RESOLVED</option>
@@ -35,7 +36,7 @@
           <td>{{c.mobile}}</td>
           <td>{{c.pincode}}</td>
           <td>{{c.status}}</td>
-          <td> <a [routerLink]="['/customer/track']" [queryParams]="{id:c.id}">View</a></td>
+          <td> <a [routerLink]="['/admin/complaintDetails']" [queryParams]="{id:c.id}" class="btn btn-primary">View</a></td>
         </tr>
       </tbody>
     </table>

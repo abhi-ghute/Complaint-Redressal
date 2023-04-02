@@ -27,6 +27,13 @@ import { AssignComplaintComponent } from './manager/assign-complaint/assign-comp
 import { RouterModule } from '@angular/router';
 import { ComplaintsComponent } from './engineer/complaints/complaints.component';
 import { UpdateStatusComponent } from './engineer/update-status/update-status.component';
+import { FeedbacksComponent } from './feedbacks/feedbacks.component';
+import { ListComponent } from './administrator/list/list.component';
+import { CustomerListComponent } from './administrator/list/customer-list/customer-list.component';
+import { EngineerListComponent } from './administrator/list/engineer-list/engineer-list.component';
+import { ManagerListComponent } from './administrator/list/manager-list/manager-list.component';
+import { AllComplaintListComponent } from './administrator/list/all-complaint-list/all-complaint-list.component';
+import { IndividualComplaintDetailsComponent } from './administrator/individual-complaint-details/individual-complaint-details.component';
 
 
 @NgModule({
@@ -51,7 +58,14 @@ import { UpdateStatusComponent } from './engineer/update-status/update-status.co
     ComplaintStatusComponent,
     AssignComplaintComponent,
     ComplaintsComponent,
-    UpdateStatusComponent
+    UpdateStatusComponent,
+    FeedbacksComponent,
+    ListComponent,
+    CustomerListComponent,
+    EngineerListComponent,
+    ManagerListComponent,
+    AllComplaintListComponent,
+    IndividualComplaintDetailsComponent
   ],
   imports: [
     BrowserModule,

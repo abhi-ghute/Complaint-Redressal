@@ -17,10 +17,20 @@ export class ViewComplaintsComponent implements OnInit{
       if(cid =='' || cid==null){
         this.router.navigate(['/login']);
       }else{
-        this.complaintService.getComplaints(cid).subscribe(data=>{
+        this.complaintService.getComplaints("ASSIGNED",cid).subscribe(data=>{
           this.complaints=data;        
         });
       }      
   }
 
+  getrecords(selectedStatus:any){
+    let cid = sessionStorage.getItem('user');
+    if(cid =='' || cid==null){
+      this.router.navigate(['/login']);
+    }else{
+      this.complaintService.getComplaints(selectedStatus.target.value,cid).subscribe(data=>{
+        this.complaints=data;        
+      });
+    }      
+  }
 }

@@ -13,4 +13,8 @@ export class ManagerService {
   createManager(manager:object):Observable<any>{
     return this.http.post(this.rootUrl+'/create',manager,{responseType:'text'});
   }
+
+  getAll():Observable<any>{
+    return this.http.get(this.rootUrl+'/getAll');
+  }
 }

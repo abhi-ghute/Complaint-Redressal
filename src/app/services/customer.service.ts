@@ -16,4 +16,8 @@ export class CustomerService {
   saveComplaint(complaint:object){    
     return this.http.post(this.rootUrl+'/complaint',complaint,{responseType:'text'});
   }
+
+  getAll():Observable<any>{
+    return this.http.get(this.rootUrl+'/getAll');
+  }
 }

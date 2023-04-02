@@ -7,34 +7,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  id: string = 'noVal';
-  loggedIn: boolean = false;
-  isAdmin: boolean = false;
-  searchText: string = '';
+  role:any;
 
   constructor(private router: Router) {
-    let t = sessionStorage.getItem('id');
-
-    if (t != null && t != '') {
-      if (t == 'admin') {
-        this.isAdmin = true;
-      }
-      this.id = t;
-      this.loggedIn = true;
-    }
-
   }
 
   ngOnInit(): void {
+    this.getRole();
   }
 
   logout() {
+
     sessionStorage.setItem('user', "");
+    sessionStorage.setItem('role', "");
     alert("logged out");
+    this.getRole();
     this.router.navigate(['/login']);
   }
-  search() {
-    this.router.navigate(['/search'], { queryParams: { searchText: this.searchText } });
-  }
 
+  getRole(){
+    this.role=sessionStorage.getItem('role');
+  }
 }

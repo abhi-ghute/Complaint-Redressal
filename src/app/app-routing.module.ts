@@ -11,6 +11,11 @@ import { AssignComplaintComponent } from './manager/assign-complaint/assign-comp
 import { ComplaintListComponent } from './manager/complaint-list/complaint-list.component';
 import { ComplaintsComponent } from './engineer/complaints/complaints.component';
 import { UpdateStatusComponent } from './engineer/update-status/update-status.component';
+import { CustomerListComponent } from './administrator/list/customer-list/customer-list.component';
+import { EngineerListComponent } from './administrator/list/engineer-list/engineer-list.component';
+import { ManagerListComponent } from './administrator/list/manager-list/manager-list.component';
+import { AllComplaintListComponent } from './administrator/list/all-complaint-list/all-complaint-list.component';
+import { IndividualComplaintDetailsComponent } from './administrator/individual-complaint-details/individual-complaint-details.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -19,7 +24,14 @@ const routes: Routes = [
       {path:"customer",component:CreateCustomerComponent},
       {path:"manager",component:CreateManagerComponent},
       {path:"engineer",component:CreateEngineerComponent}
-    ]}
+    ]},
+    {path:'list',children:[
+      {path:"customer",component:CustomerListComponent},
+      {path:"engineer",component:EngineerListComponent},
+      {path:"manager",component:ManagerListComponent},
+      {path:"complaints",component:AllComplaintListComponent}
+    ]},
+    {path:'complaintDetails',component:IndividualComplaintDetailsComponent}
   ]},
   {path:'customer',children:[
     {path:'complaint',component:CreateComplaintComponent},

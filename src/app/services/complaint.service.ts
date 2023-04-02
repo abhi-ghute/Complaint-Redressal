@@ -14,8 +14,8 @@ export class ComplaintService {
     return this.http.post(this.rootUrl+'/save',complaint,{responseType:'text'});
   }
 
-  getComplaints(cid:string){
-    return this.http.get(this.rootUrl+'/list?cid='+cid);
+  getComplaints(status:string,cid:string){
+    return this.http.get(this.rootUrl+'/list?status='+status+'&cid='+cid);
   }
 
   getComplaintById(id:string){

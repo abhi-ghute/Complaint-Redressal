@@ -44,26 +44,16 @@
                                 <th class="table-header">Status:</th>
                                 <td class="status-cell">{{complaint.status}}</td>
                             </tr>
-                            <tr *ngIf="complaint.status=='RAISED' || complaint.status=='WIP' || complaint.status=='ASSIGNED';else notEditable">
+                            <tr>
                                 <th class="table-header">Assign Engineer:</th>
                                 <td class="engineer-cell">
                                     <div class="form-group">
                                         <select class="form-control" (change)="getEngineer($event)">
                                             <option value="{{eid}}">{{prevEngineer}}</option>
-                                            <option *ngFor="let e of engineer" [value]="e.id">{{e.name}}</option>
                                         </select>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Assign</button>
                                 </td>
                             </tr>
-                            <ng-template #notEditable>
-                                <tr>
-                                    <th class="table-header">Assign Engineer:</th>
-                                    <td class="engineer-cell">
-                                        {{prevEngineer}}
-                                    </td>
-                                </tr>
-                            </ng-template>
                         </tbody>
                     </table>
                 </div>
