@@ -19,4 +19,12 @@ export class CustomerListComponent implements OnInit{
       this.customers=data;
     });
   }
+
+  updateform(cust:any){
+    this.router.navigate(['/admin/update/customer'],{ queryParams: { customer:JSON.stringify(cust) } });
+  }
+
+  deleteForm(){
+
+  }
 }

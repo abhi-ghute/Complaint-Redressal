@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { City, State } from 'country-state-city';
 import { AdministratorService } from 'src/app/services/administrator.service';
 import { CustomerService } from 'src/app/services/customer.service';
@@ -15,9 +15,14 @@ export class UpdateCustomerComponent implements OnInit {
   states:any;
   cities:any;
 
-  constructor(private fb: FormBuilder, private router: Router,private adminService:AdministratorService,private customerService:CustomerService) {}
+  constructor(private fb: FormBuilder, private router: Router,private adminService:AdministratorService,private customerService:CustomerService,private route: ActivatedRoute) {}
 
   ngOnInit() {
+    let cust;
+    const customerString = this.route.snapshot.queryParamMap.get('customer');
+    if(customerString)
+      cust = JSON.parse(customerString);
+    console.log(cust);
 
     let data = sessionStorage.getItem('user');
     if(data ==null || data ==undefined){
@@ -30,17 +35,17 @@ export class UpdateCustomerComponent implements OnInit {
     this.states =  State.getStatesOfCountry('IN');  
 
     this.customer = this.fb.group({
-      name: ['', Validators.required],
-      mobile: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      mobileService:[true],
-      landLineService:[false],
-      broadbandService:[false],
-      address:['',Validators.required],
-      state:['',Validators.required],
-      city:['',Validators.required],
-      pincode:['',Validators.required]
+      name: [cust.name, Validators.required],
+      mobile: [cust.mobile, Validators.required],
+      email: [cust.email, Validators.required],
+      password: [cust.password, Validators.required],
+      mobileService: [cust.mobileService === 'true'],
+      landLineService: [cust.landLineService === 'true'],
+      broadbandService: [cust.broadbandService === 'true'],
+      address: [cust.address, Validators.required],
+      state: [, Validators.required],
+      city: [cust.city, Validators.required],
+      pincode: [cust.pincode, Validators.required]
     });
   }
 

@@ -16,6 +16,9 @@ import { EngineerListComponent } from './administrator/list/engineer-list/engine
 import { ManagerListComponent } from './administrator/list/manager-list/manager-list.component';
 import { AllComplaintListComponent } from './administrator/list/all-complaint-list/all-complaint-list.component';
 import { IndividualComplaintDetailsComponent } from './administrator/individual-complaint-details/individual-complaint-details.component';
+import { UpdateCustomerComponent } from './administrator/update/update-customer/update-customer.component';
+import { UpdateManagerComponent } from './administrator/update/update-manager/update-manager.component';
+import { UpdateEngineerComponent } from './administrator/update/update-engineer/update-engineer.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -31,7 +34,12 @@ const routes: Routes = [
       {path:"manager",component:ManagerListComponent},
       {path:"complaints",component:AllComplaintListComponent}
     ]},
-    {path:'complaintDetails',component:IndividualComplaintDetailsComponent}
+    {path:'complaintDetails',component:IndividualComplaintDetailsComponent},
+    {path:'update',children:[
+      {path:"customer",component:UpdateCustomerComponent},
+      {path:"manager",component:UpdateManagerComponent},
+      {path:"engineer",component:UpdateEngineerComponent}
+    ]},
   ]},
   {path:'customer',children:[
     {path:'complaint',component:CreateComplaintComponent},

@@ -19,4 +19,12 @@ export class ManagerListComponent implements OnInit {
     });
   }
 
+  updateform(){
+
+  }
+
+  deleteForm(){
+    
+  }
+  
 }

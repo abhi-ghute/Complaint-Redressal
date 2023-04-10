@@ -18,4 +18,12 @@ export class EngineerListComponent implements OnInit{
         this.engineers=data;
        });
    }
+   
+   updateform(){
+
+   }
+ 
+   deleteForm(){
+     
+   }
 }
