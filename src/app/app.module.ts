@@ -34,6 +34,10 @@ import { EngineerListComponent } from './administrator/list/engineer-list/engine
 import { ManagerListComponent } from './administrator/list/manager-list/manager-list.component';
 import { AllComplaintListComponent } from './administrator/list/all-complaint-list/all-complaint-list.component';
 import { IndividualComplaintDetailsComponent } from './administrator/individual-complaint-details/individual-complaint-details.component';
+import { UpdateComponent } from './administrator/update/update.component';
+import { UpdateManagerComponent } from './administrator/update/update-manager/update-manager.component';
+import { UpdateCustomerComponent } from './administrator/update/update-customer/update-customer.component';
+import { UpdateEngineerComponent } from './administrator/update/update-engineer/update-engineer.component';
 
 
 @NgModule({
@@ -65,7 +69,11 @@ import { IndividualComplaintDetailsComponent } from './administrator/individual-
     EngineerListComponent,
     ManagerListComponent,
     AllComplaintListComponent,
-    IndividualComplaintDetailsComponent
+    IndividualComplaintDetailsComponent,
+    UpdateComponent,
+    UpdateManagerComponent,
+    UpdateCustomerComponent,
+    UpdateEngineerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { City, State } from 'country-state-city';
 import { AdministratorService } from 'src/app/services/administrator.service';
-import { State, City } from 'country-state-city';
 import { CustomerService } from 'src/app/services/customer.service';
 
-
 @Component({
-  selector: 'app-create-customer',
-  templateUrl: './create-customer.component.html',
-  styleUrls: ['./create-customer.component.css']
+  selector: 'app-update-customer',
+  templateUrl: './update-customer.component.html',
+  styleUrls: ['./update-customer.component.css']
 })
-export class CreateCustomerComponent implements OnInit {
+export class UpdateCustomerComponent implements OnInit {
   customer: FormGroup= new FormGroup({});
   states:any;
   cities:any;
