@@ -19,9 +19,16 @@ import { IndividualComplaintDetailsComponent } from './administrator/individual-
 import { UpdateCustomerComponent } from './administrator/update/update-customer/update-customer.component';
 import { UpdateManagerComponent } from './administrator/update/update-manager/update-manager.component';
 import { UpdateEngineerComponent } from './administrator/update/update-engineer/update-engineer.component';
+import { HomeComponent } from './home/home.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
+  {path:'logout',component:LogoutComponent},
+  {path:'home',component:HomeComponent},
+  {path:'about',component:AboutUsComponent},
+  {path:'',component:HomeComponent},
   {path:'admin',children:[
     {path:'create',children:[
       {path:"customer",component:CreateCustomerComponent},

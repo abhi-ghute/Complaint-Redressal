@@ -1,0 +1,30 @@
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  a:hover {
+    color: #ffc107;
+    text-decoration: none;
+  }
+  
+  .container {
+    background-image: url('https://source.unsplash.com/random/1600x900');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 3rem;
+  }
+  

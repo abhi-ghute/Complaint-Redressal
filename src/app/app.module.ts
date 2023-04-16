@@ -38,6 +38,9 @@ import { UpdateComponent } from './administrator/update/update.component';
 import { UpdateManagerComponent } from './administrator/update/update-manager/update-manager.component';
 import { UpdateCustomerComponent } from './administrator/update/update-customer/update-customer.component';
 import { UpdateEngineerComponent } from './administrator/update/update-engineer/update-engineer.component';
+import { HomeComponent } from './home/home.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -73,7 +76,10 @@ import { UpdateEngineerComponent } from './administrator/update/update-engineer/
     UpdateComponent,
     UpdateManagerComponent,
     UpdateCustomerComponent,
-    UpdateEngineerComponent
+    UpdateEngineerComponent,
+    HomeComponent,
+    LogoutComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

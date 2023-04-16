@@ -8,21 +8,22 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   role:any;
+  isLoggedIn:boolean=false;
+  isCustomer:boolean=false;
+  isManager:boolean=false;
+  isEngineer:boolean=false;
 
   constructor(private router: Router) {
   }
 
   ngOnInit(): void {
     this.getRole();
-  }
-
-  logout() {
-
-    sessionStorage.setItem('user', "");
-    sessionStorage.setItem('role', "");
-    alert("logged out");
-    this.getRole();
-    this.router.navigate(['/login']);
+    let user = sessionStorage.getItem('user');
+    if(user==undefined || user==null || user==''){
+      this.isLoggedIn = false;
+    }else{
+      this.isLoggedIn=true;
+    }
   }
 
   getRole(){
