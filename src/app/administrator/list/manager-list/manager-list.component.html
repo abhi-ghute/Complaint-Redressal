@@ -14,8 +14,8 @@
         <td>{{m.mobile }}</td>
         <td>{{ m.email }}</td>
         <td>{{ m.password }}</td>
-        <td><button class="btn btn-outline-primary" (click)="updateform()">Update</button> &nbsp;
-          <button class="btn btn-outline-danger" (click)="deleteForm()">Delete</button>
+        <td><button class="btn btn-outline-primary" (click)="updateform(m)">Update</button> &nbsp;
+          <button class="btn btn-outline-danger" (click)="deleteForm(m.id)">Delete</button>
         </td>
       </tr>
     </tbody>

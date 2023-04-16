@@ -78,7 +78,7 @@
                 <label for="state">State : </label>
             </div>
             <div class="col-md-9">
-                <select class="form-control" formControlName="state" (change)="getCities($event)">
+                <select class="form-control" formControlName="state" [(ngModel)]="currentState" (change)="getCities($event)">
                     <option *ngFor="let s of states" value={{s.name}}>{{s.name}}</option>
                 </select>
                 <div *ngIf="customer.get('state')?.touched && customer.get('state')?.invalid" class="error-message">
@@ -91,9 +91,11 @@
                 <label for="city">City : </label>
             </div>
             <div class="col-md-9">
-                <select class="form-control" formControlName="city">
-                    <option *ngFor="let c of cities" value={{c.name}} (change)="getCities(c.name)">{{c.name}}</option>
-                </select>
+                <select class="form-control" formControlName="city" [(ngModel)]="currentCity">
+                    <option>{{currentCity}}</option>
+                    <option *ngFor="let c of cities" [value]="c" [selected]="c.name === currentCity">{{c.name}}</option>
+                  </select>
+                  
                 <div *ngIf="customer.get('city')?.touched && customer.get('city')?.invalid" class="error-message">
                     <div *ngIf="customer.get('city')?.errors?.['required']">city is required</div>
                 </div>

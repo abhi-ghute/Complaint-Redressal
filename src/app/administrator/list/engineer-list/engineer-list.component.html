@@ -20,8 +20,8 @@
             <li *ngFor="let pin of e.pincodes">{{ pin }}</li>
           </ul>
         </td>
-        <td><button class="btn btn-outline-primary" (click)="updateform()">Update</button> &nbsp;
-          <button class="btn btn-outline-danger" (click)="deleteForm()">Delete</button>
+        <td><button class="btn btn-outline-primary" (click)="updateform(e)">Update</button> &nbsp;
+          <button class="btn btn-outline-danger" (click)="deleteForm(e.id)">Delete</button>
         </td>
       </tr>
     </tbody>

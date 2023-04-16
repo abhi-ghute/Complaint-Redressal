@@ -20,4 +20,14 @@ export class CustomerService {
   getAll():Observable<any>{
     return this.http.get(this.rootUrl+'/getAll');
   }
+
+  deleteCustomer(id:string):Observable<any>{
+    return this.http.delete(this.rootUrl+'/delete?id='+id,{responseType:'text'});
+  }
+
+  updateCustomer(customer:object):Observable<any>{
+    console.log(customer);
+    
+    return this.http.post(this.rootUrl+'/update',customer,{responseType:'text'});
+  }
 }

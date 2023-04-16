@@ -19,12 +19,19 @@ export class ManagerListComponent implements OnInit {
     });
   }
 
-  updateform(){
-
+  updateform(manager:any){
+    this.router.navigate(['/admin/update/manager'],{ queryParams: { manager:JSON.stringify(manager) } });
   }
 
-  deleteForm(){
-    
+  deleteForm(id:string){
+    if (confirm("Are you sure you want to delete this ?")) {
+      this.managerService.deleteManager(id).subscribe(data=>{
+        alert("Success");
+        this.managerService.getAll().subscribe(data=>{
+          this.managers=data;
+        });
+      });
+    }
   }
   
 }

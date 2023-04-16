@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EngineerService } from 'src/app/services/engineer.service';
 
 @Component({
@@ -10,23 +10,9 @@ import { EngineerService } from 'src/app/services/engineer.service';
 })
 export class UpdateEngineerComponent implements OnInit{
 
-  engineer: FormGroup = this.fb.group({
-    name: ['', Validators.required],
-    mobile: ['', Validators.required],
-    email: ['', Validators.required],
-    password: ['', Validators.required],
-    pincodes: this.fb.array([])
-  });
-
-  constructor(private fb: FormBuilder,private router:Router,private engineerService:EngineerService) {
-    this.addPincode();
-    this.engineer.setValue({
-      name:'abhi',
-      email:'asd',
-      mobile:'asdd',
-      password:'asdas',
-      pincodes:[1]
-    });
+  
+  engineer:FormGroup= new FormGroup({});
+  constructor(private fb: FormBuilder,private router:Router,private engineerService:EngineerService,private route:ActivatedRoute) {
    }
 
   ngOnInit(): void {
@@ -37,6 +23,21 @@ export class UpdateEngineerComponent implements OnInit{
       alert("You don't have a access to create.. please contact admin");
       this.router.navigate(['/login']);
     }
+
+    let engineer:any;
+    const engineerString = this.route.snapshot.queryParamMap.get('engineer');
+    if(engineerString)
+    engineer = JSON.parse(engineerString);
+    console.log(engineer);
+
+    this.engineer= this.fb.group({
+      id:[engineer.id],
+      name: [engineer.name, Validators.required],
+      mobile: [engineer.mobile, Validators.required],
+      email: [engineer.email, Validators.required],
+      password: [engineer.password, Validators.required],
+      pincodes: this.fb.array(engineer.pincodes)
+    });
   }
 
   get pincodes() {
@@ -55,9 +56,11 @@ export class UpdateEngineerComponent implements OnInit{
     if(this.engineer.invalid){
       return;
     }
-    this.engineerService.createCustomer(this.engineer.value).subscribe(data => {
+    console.log(this.engineer.value);
+    
+    this.engineerService.updateEngineer(this.engineer.value).subscribe(data => {
       console.log(data);
-      alert("Engineer Created")
+      alert("Engineer Updated")
     });
     this.engineer.reset();
   }

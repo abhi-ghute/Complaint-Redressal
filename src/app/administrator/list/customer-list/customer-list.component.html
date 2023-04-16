@@ -23,7 +23,7 @@
       <td>{{ c.pincode }}</td>
       <td>{{ c.email }}</td>
       <td><button class="btn btn-outline-primary" (click)="updateform(c)">Update</button> &nbsp;
-        <button class="btn btn-outline-danger" (click)="deleteForm()">Delete</button>
+        <button class="btn btn-outline-danger" (click)="deleteForm(c.id)">Delete</button>
       </td>
     </tr>
   </tbody>

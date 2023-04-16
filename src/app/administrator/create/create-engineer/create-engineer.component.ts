@@ -55,7 +55,7 @@ export class CreateEngineerComponent implements OnInit{
     if(this.engineer.invalid){
       return;
     }
-    this.engineerService.createCustomer(this.engineer.value).subscribe(data => {
+    this.engineerService.createEngineer(this.engineer.value).subscribe(data => {
       console.log(data);
       alert("Engineer Created")
     });

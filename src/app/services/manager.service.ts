@@ -17,4 +17,12 @@ export class ManagerService {
   getAll():Observable<any>{
     return this.http.get(this.rootUrl+'/getAll');
   }
+
+  deleteManager(id:string):Observable<any>{
+    return this.http.delete(this.rootUrl+'/delete?id='+id,{responseType:'text'});
+  }
+
+  updateManager(manager:object):Observable<any>{
+    return this.http.post(this.rootUrl+'/update',manager,{responseType:'text'});
+  }
 }

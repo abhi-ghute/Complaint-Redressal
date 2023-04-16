@@ -24,7 +24,14 @@ export class CustomerListComponent implements OnInit{
     this.router.navigate(['/admin/update/customer'],{ queryParams: { customer:JSON.stringify(cust) } });
   }
 
-  deleteForm(){
-
+  deleteForm(id:string){
+    if (confirm("Are you sure you want to delete this ?")) {
+    this.customerService.deleteCustomer(id).subscribe(data=>{
+      alert("Success");
+      this.customerService.getAll().subscribe(data=>{
+        this.customers=data;
+      });
+    });
+  }
   }
 }
