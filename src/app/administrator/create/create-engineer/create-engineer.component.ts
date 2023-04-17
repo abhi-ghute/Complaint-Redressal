@@ -20,13 +20,6 @@ export class CreateEngineerComponent implements OnInit{
 
   constructor(private fb: FormBuilder,private router:Router,private engineerService:EngineerService) {
     this.addPincode();
-    this.engineer.setValue({
-      name:'abhi',
-      email:'asd',
-      mobile:'asdd',
-      password:'asdas',
-      pincodes:[1]
-    });
    }
 
   ngOnInit(): void {

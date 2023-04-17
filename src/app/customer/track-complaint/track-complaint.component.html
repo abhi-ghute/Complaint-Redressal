@@ -17,18 +17,6 @@
                 <div [ngClass]="(complaint.status=='RESOLVED'||complaint.status=='ESCALATED')?'step active':'step'"> <span class="icon"></span><span class="text"><span *ngIf='complaint.status=="ESCALATED"; else resolve'>ESCALATED</span><ng-template #resolve>Resolved</ng-template></span> </div>
             </div>
             <hr>
-            <div class="feedback-container" *ngIf="complaint.status=='Resolved'|| complaint.status=='ESCALATED'">
-                <form [formGroup]="feedbackFrom" (ngSubmit)="onSubmit()" novalidate>
-                    <textarea cols="130" placeholder="Type your feedback here..." formControlName="feedback"></textarea>
-                    <button class="btn btn-primary" style="margin-top: -10px; margin-bottom: 10px;" [disabled]="feedbackFrom.invalid">Submit</button>
-                </form>
-                <div class="feedback-messages">
-                  <div class="feedback-message" *ngFor="let f of feedbackDetails">
-                    <span class="feedback-message-text">{{f.msg}}</span>
-                    <span class="feedback-message-date">23/4/1222</span>
-                  </div>
-                </div>
-              </div>              
         </div>
     </article>
 </div>
