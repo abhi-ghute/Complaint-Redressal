@@ -12,6 +12,7 @@ export class HeaderComponent {
   isCustomer:boolean=false;
   isManager:boolean=false;
   isEngineer:boolean=false;
+  isAdmin:boolean=false;
 
   constructor(private router: Router) {
   }
@@ -23,6 +24,19 @@ export class HeaderComponent {
       this.isLoggedIn = false;
     }else{
       this.isLoggedIn=true;
+    }
+    let role = sessionStorage.getItem('role');
+
+    if(role==undefined || role==null || role==''){}
+    else{
+      if(role=='admin')
+        this.isAdmin=true;
+      else if(role=='customer')
+        this.isCustomer=true;
+      else if(role=='engineer')
+        this.isEngineer=true;
+        else if(role=='manager')
+        this.isManager=true;
     }
   }
 

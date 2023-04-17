@@ -2,16 +2,19 @@ h1 {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    color: black;
   }
   
   p {
     font-size: 1.2rem;
     line-height: 1.5;
     margin-bottom: 1.5rem;
+    color: #df193e;
+    background-color: wheat;
   }
   
   a {
-    color: white;
+    color: black;
     text-decoration: underline;
   }
   
@@ -21,7 +24,7 @@ h1 {
   }
   
   .container {
-    background-image: url('https://source.unsplash.com/random/1600x900');
+    background-image: url('/assets/images/about.jpg');
     background-size: cover;
     background-position: center;
     color: white;
